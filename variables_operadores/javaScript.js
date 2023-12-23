@@ -52,7 +52,7 @@ var matrizNumeros = [
   // Modificar un elemento de la matriz
   matrizNumeros[1][1] = 10;
   console.log("Matriz modificada:", matrizNumeros);
-*/
+
 
 //POO
 //Pasando objeto de JS a HTML
@@ -68,4 +68,27 @@ myButton.style.height = "60px";
 myButton.style.backgroundColor = "green";
 myText.value = "Escriba aqui! ..." //mensaje propio de FB
 myText2.focus();  //Para tener el click que indica jerarquía
+*/
 
+//CONDICIONALES (IF, else if)
+var myButton = document.getElementById("myButton");
+var myText = document.getElementById("myText"), myText2 = document.getElementById("myText2");
+
+myText.style.width = "150px";
+myText.style.height = "50px";
+myButton.style.width = "80px";
+myButton.style.height = "60px";
+myButton.style.backgroundColor="yellow";
+
+var webColor = prompt("Insert background color");
+myText.value = webColor;
+
+//Para dar color al body
+var myBody = document.getElementById("myBody");
+if(myText.value == "rojo"){
+    myBody.style.backgroundColor="red";
+}else if(myText.value == "verde"){
+    myBody.style.backgroundColor="green";
+}else{
+    myBody.style.backgroundColor="blue";
+}
