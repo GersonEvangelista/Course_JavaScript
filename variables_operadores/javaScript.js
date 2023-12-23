@@ -1,5 +1,5 @@
 //VARIABLES
-
+/*
 var $name, $lastname, years;
 
 //INPUTS
@@ -9,7 +9,7 @@ years = prompt("Insert your age");
 //OUTPUTS
 //alert("Your name is "+$name+"\nyour lastname is "+$lastname+"\nYou are "+years+" years old");
 
-/*
+
 //OPERADORES BÁSICOS
 var $num1, $num2, $result;
     $num1 = Number(prompt("Número1")); //Number: para indicarle que se trata de numeros
@@ -38,7 +38,7 @@ data2.push("Jose","Rivera",15);
 var matriz = [];
 matriz.push(data,data2); //array que contiene arrays
 alert(matriz[1][2]);
-*/
+
 
 // Crear una matriz de números y mostrar en consola (F12/fn+F12/inspeccionar para ver consola)
 var matrizNumeros = [
@@ -52,4 +52,20 @@ var matrizNumeros = [
   // Modificar un elemento de la matriz
   matrizNumeros[1][1] = 10;
   console.log("Matriz modificada:", matrizNumeros);
+*/
+
+//POO
+//Pasando objeto de JS a HTML
+var myButton = document.getElementById("myButton");
+var myText = document.getElementById("myText"), myText2 = document.getElementById("myText2");
+
+//Métodos y propiedades de los objetos
+myText.style.width = "150px";
+myText.style.height = "50px";
+myButton.style.width = "80px";
+myButton.style.height = "60px";
+
+myButton.style.backgroundColor = "green";
+myText.value = "Escriba aqui! ..." //mensaje propio de FB
+myText2.focus();  //Para tener el click que indica jerarquía
 
