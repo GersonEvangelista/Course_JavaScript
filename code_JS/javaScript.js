@@ -68,7 +68,7 @@ myButton.style.height = "60px";
 myButton.style.backgroundColor = "green";
 myText.value = "Escriba aqui! ..." //mensaje propio de FB
 myText2.focus();  //Para tener el click que indica jerarquía
-*/
+
 
 //CONDICIONALES (IF, else if)
 var myButton = document.getElementById("myButton");
@@ -80,15 +80,35 @@ myButton.style.width = "80px";
 myButton.style.height = "60px";
 myButton.style.backgroundColor="yellow";
 
-var webColor = prompt("Insert background color");
+var webColor = prompt("Insert background color").toLocaleUpperCase(); //convierte todo a mayúscula
 myText.value = webColor;
 
 //Para dar color al body
 var myBody = document.getElementById("myBody");
-if(myText.value == "rojo"){
+if(myText.value == "ROJO"){
     myBody.style.backgroundColor="red";
-}else if(myText.value == "verde"){
+}else if(myText.value == "VERDE"){
     myBody.style.backgroundColor="green";
 }else{
     myBody.style.backgroundColor="blue";
 }
+*/
+//CONDICIONALES ANIDADOS 
+var num1 = prompt("Insert first number"); 
+var num2 = prompt("Insert second number");
+//alert(typeof(num1));
+
+if(!isNaN(num1) && !isNaN(num2)){ //si no son numéricos
+    var operation = prompt("Insert operation");
+
+    if(operation=="+"){
+        alert(parseInt(num1)+parseInt(num2)); //para convertir a entero temporalmente
+    }else if(operation=="-"){
+        alert(parseInt(num1)-parseInt(num2));
+    }else if(operation=="*"){
+        alert(parseInt(num1)*parseInt(num2));
+    }else{
+        alert(parseInt(num1)/parseInt(num2));
+    }
+}
+
