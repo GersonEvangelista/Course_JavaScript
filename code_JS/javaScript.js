@@ -92,7 +92,7 @@ if(myText.value == "ROJO"){
 }else{
     myBody.style.backgroundColor="blue";
 }
-*/
+
 //CONDICIONALES ANIDADOS 
 var num1 = prompt("Insert first number"); 
 var num2 = prompt("Insert second number");
@@ -110,5 +110,21 @@ if(!isNaN(num1) && !isNaN(num2)){ //si no son numéricos
     }else{
         alert(parseInt(num1)/parseInt(num2));
     }
+}
+*/
+
+//BUCLE WHILE
+var num = Number(prompt("Insert a number"));
+var numbers = new Array();
+var cont = 0;
+
+while(cont < num){
+    numbers.push(Number(prompt("Insert "+num+" numbers")));
+    cont++;
+}
+cont = 0
+while(cont < numbers.length){
+    document.write(numbers[cont]+"</br>");
+    cont++
 }
 
