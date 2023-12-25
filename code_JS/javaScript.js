@@ -111,7 +111,7 @@ if(!isNaN(num1) && !isNaN(num2)){ //si no son numéricos
         alert(parseInt(num1)/parseInt(num2));
     }
 }
-*/
+
 
 //BUCLE WHILE
 var num = Number(prompt("Insert a number"));
@@ -127,4 +127,25 @@ while(cont < numbers.length){
     document.write(numbers[cont]+"</br>");
     cont++
 }
+*/
 
+//BUCLE DO WHILE
+var aleatorio = Math.round(Math.random()*100);
+alert(aleatorio);
+var intentos = 0, c_intentos = document.getElementById("c_intentos");
+
+        do{
+            var myNumber = Number(prompt("Insert your number"));
+            if(myNumber<aleatorio){
+                alert("Mas alto");
+            }else if(myNumber>aleatorio){
+                alert("Mas bajo");
+            }
+            intentos++;
+        }while(myNumber!=aleatorio);
+        //Aplicando POO para el estilo de la caja de texto
+        c_intentos.style.backgroundColor="yellow";
+        c_intentos.style.color="red";
+        c_intentos.value = "Tu has hecho "+intentos+" intentos.";
+        c_intentos.style.textAlign="center";
+        c_intentos.style.fontSize="12px";
