@@ -127,7 +127,7 @@ while(cont < numbers.length){
     document.write(numbers[cont]+"</br>");
     cont++
 }
-*/
+
 
 //BUCLE DO WHILE
 var aleatorio = Math.round(Math.random()*100);
@@ -149,3 +149,17 @@ var intentos = 0, c_intentos = document.getElementById("c_intentos");
         c_intentos.value = "Tu has hecho "+intentos+" intentos.";
         c_intentos.style.textAlign="center";
         c_intentos.style.fontSize="12px";
+*/
+        
+//BUCLE FOR
+var workers = new Array(), decision;
+
+do{
+    workers.push(prompt("Insert name of worker"));
+    decision = prompt("Desea continuar? (si/no)");
+
+}while(decision != "no");
+document.write("</br>");
+for(var i=0;i<workers.length;i++){
+    document.write(workers[i]+" </br>");
+}
