@@ -149,7 +149,7 @@ var intentos = 0, c_intentos = document.getElementById("c_intentos");
         c_intentos.value = "Tu has hecho "+intentos+" intentos.";
         c_intentos.style.textAlign="center";
         c_intentos.style.fontSize="12px";
-*/
+
         
 //BUCLE FOR
 var workers = new Array(), decision;
@@ -162,4 +162,18 @@ do{
 document.write("</br>");
 for(var i=0;i<workers.length;i++){
     document.write(workers[i]+" </br>");
+}
+*/
+//FUNCIONES CON EVENTOS
+var $name = prompt("Ingresa tu nombre");
+var $num1 = parseInt(prompt("Ingresa num1"));
+var $num2 = parseInt(prompt("Ingresa num2"));
+
+function saluda(name){
+    document.write("</br>");
+    document.write("Hola mi estimado <strong>"+name+"</strong> la suma de los números es <strong>"+suma($num1,$num2)+"</strong>");
+}
+
+function suma(a,b){
+    return a+b;
 }
