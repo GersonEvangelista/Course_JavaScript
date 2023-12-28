@@ -1,3 +1,10 @@
 h1{
     background-color: green;
 }
+
+#contenedor img{
+    float: left;
+    height: 20%;
+    width: 20%;
+    margin: 30px;
+}

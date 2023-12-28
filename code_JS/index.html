@@ -13,35 +13,33 @@
     <h1 id="title">JQUERY</h1>
     <input type="text" id="texto"/>
     <input type="button" id="boton" value="Go!" onclick="validate();"/>
-    <img src="JD.png"/>
-    
-    <script>
-        //JQUERY USO Y FUNCIONES
-        //var texto = document.getElementById("texto");
-        var text = $("#texto"); 
+    <div id="contenedor">
+        <img id="imagen1" src="fotoIA.jpg"/>
+        <img id="imagen2" src="JD.png"/>
+        <img id="imagen3" src="fotoIA.jpg"/>
+        <img id="imagen4" src="JD.png"/>
+    </div>
 
-        function validate(){
-            if(texto.value ==""){
-                $("#texto").after("<p>Ingrese dato<p>"); //agregando codigo html despues de #texto
-            }else{
-                alert("Esto contiene la caja de texto: "+texto.value);
+    <script>
+        //Jquery: -REMOVE Y REPLACEWITH- CON SWITCH
+        var imgs = document.querySelectorAll("#contenedor img");//Selecciona todos los img de #contenedor
+
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].addEventListener("click", elimina, false);//escuchador de eventos, parámetros (evento,nameFuncion,false)
+        }
+
+        function elimina(num){ //num -> objeto del evento
+            switch(num.target){ //Solo funciona con ID, no funciona con clases
+                case imagen1: //ID del img 1
+                    $("#texto").remove();break; //borra codigo HTML
+                case imagen2:
+                    $("#boton").remove();break;
+                case imagen3:
+                    $("#imagen3").replaceWith("<h2 id='imagen3'>Agregado al carrito</h2>");break;//Reemplaza codigo HTML (considera el ID para evitar errores)
+                case imagen4:    
+                    $("#imagen4").replaceWith("<h2 id='imagen4'>Agregado al carrito</h2>");break;
             }
         }
-        
-        $(document).ready(function(){ //Espera a que cargue toda la página
-            //POO con Jquery
-            $("img").hide() //todo en blanco
-            .width("800") //ancho en pixeles
-            .height("500")
-            .fadeIn(5000); //degradado en 5 seg
-
-            var title = $("#title");
-            //Funciones/Métodos de Jquery
-            title.text("Cambiando el titulo"); //solo cambia el contenido de #title
-            title.append("<h2>This is a subtitle</h2>"); //dentro y despues del #title
-            title.prepend("<h2>This is first</h2>"); //dentro y previo del #title
-            title.after("<p>another block</p>"); //fuera del bloque #title
-        })
     </script>
 
 </body>

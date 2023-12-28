@@ -177,5 +177,36 @@ function saluda(name){
 function suma(a,b){
     return a+b;
 }
+
+//ESTO VA EN EL index.HTML
+<script>
+        //JQUERY USO Y FUNCIONES
+        //var texto = document.getElementById("texto");
+        var text = $("#texto"); 
+
+        function validate(){
+            if(texto.value ==""){
+                $("#texto").after("<p>Ingrese dato<p>"); //agregando codigo html despues de #texto
+            }else{
+                alert("Esto contiene la caja de texto: "+texto.value);
+            }
+        }
+        
+        $(document).ready(function(){ //Espera a que cargue toda la página
+            //POO con Jquery
+            $("img").hide() //todo en blanco
+            .width("800") //ancho en pixeles
+            .height("500")
+            .fadeIn(5000); //degradado en 5 seg
+
+            var title = $("#title");
+            //Funciones/Métodos de Jquery
+            title.text("Cambiando el titulo"); //solo cambia el contenido de #title
+            title.append("<h2>This is a subtitle</h2>"); //dentro y despues del #title
+            title.prepend("<h2>This is first</h2>"); //dentro y previo del #title
+            title.after("<p>another block</p>"); //fuera del bloque #title
+        })
+    </script>
+
 */
 
