@@ -163,7 +163,7 @@ document.write("</br>");
 for(var i=0;i<workers.length;i++){
     document.write(workers[i]+" </br>");
 }
-*/
+
 //FUNCIONES CON EVENTOS
 var $name = prompt("Ingresa tu nombre");
 var $num1 = parseInt(prompt("Ingresa num1"));
@@ -177,3 +177,5 @@ function saluda(name){
 function suma(a,b){
     return a+b;
 }
+*/
+

@@ -6,19 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="style.css" rel="stylesheet">
-
+    <script src="jquery-3.7.1.min.js"></script> <!--Importando libreria JQUERY-->
 </head>
 
 <body id="myBody">
-    <h1>FUNCIONES</h1>
+    <h1 id="title">JQUERY</h1>
+    <input type="text" id="texto"/>
+    <input type="button" id="boton" value="Go!" onclick="validate();"/>
+    <img src="JD.png"/>
     
-    <!--
-    <input type="button" id="myButton">
-    <input type="text" id = "myText">
-    <input type="text" id = "myText2">
-    <script src="javaScript.js"> </script> 
-    -->
-    <script src="javaScript.js"></script>
-    <img src="JD.png" width="420" height="286" onclick="saluda($name)">
+    <script>
+        //JQUERY USO Y FUNCIONES
+        //var texto = document.getElementById("texto");
+        var text = $("#texto"); 
+
+        function validate(){
+            if(texto.value ==""){
+                $("#texto").after("<p>Ingrese dato<p>"); //agregando codigo html despues de #texto
+            }else{
+                alert("Esto contiene la caja de texto: "+texto.value);
+            }
+        }
+        
+        $(document).ready(function(){ //Espera a que cargue toda la página
+            //POO con Jquery
+            $("img").hide() //todo en blanco
+            .width("800") //ancho en pixeles
+            .height("500")
+            .fadeIn(5000); //degradado en 5 seg
+
+            var title = $("#title");
+            //Funciones/Métodos de Jquery
+            title.text("Cambiando el titulo"); //solo cambia el contenido de #title
+            title.append("<h2>This is a subtitle</h2>"); //dentro y despues del #title
+            title.prepend("<h2>This is first</h2>"); //dentro y previo del #title
+            title.after("<p>another block</p>"); //fuera del bloque #title
+        })
+    </script>
+
 </body>
 </html>
