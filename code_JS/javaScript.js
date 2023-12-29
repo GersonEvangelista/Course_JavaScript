@@ -179,6 +179,9 @@ function suma(a,b){
 }
 
 //ESTO VA EN EL index.HTML
+<input type="text" id="texto"/>
+<input type="button" id="boton" value="Go!" onclick="validate();"/>
+
 <script>
         //JQUERY USO Y FUNCIONES
         //var texto = document.getElementById("texto");
@@ -206,6 +209,36 @@ function suma(a,b){
             title.prepend("<h2>This is first</h2>"); //dentro y previo del #title
             title.after("<p>another block</p>"); //fuera del bloque #title
         })
+    </script>
+
+//ESTO VA EN EL index.HTML
+<div id="contenedor">
+    <img id="imagen1" src="fotoIA.jpg"/>
+    <img id="imagen2" src="JD.png"/>
+    <img id="imagen3" src="fotoIA.jpg"/>
+    <img id="imagen4" src="JD.png"/>
+</div>
+
+<script>
+        //Jquery: -REMOVE Y REPLACEWITH- CON SWITCH
+        var imgs = document.querySelectorAll("#contenedor img");//Selecciona todos los img de #contenedor
+
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].addEventListener("click", elimina, false);//escuchador de eventos, parámetros (evento,nameFuncion,false)
+        }
+
+        function elimina(num){ //num -> objeto del evento
+            switch(num.target){ //Solo funciona con ID, no funciona con clases
+                case imagen1: //ID del img 1
+                    $("#texto").remove();break; //borra codigo HTML
+                case imagen2:
+                    $("#boton").remove();break;
+                case imagen3:
+                    $("#imagen3").replaceWith("<h2 id='imagen3'>Agregado al carrito</h2>");break;//Reemplaza codigo HTML (considera el ID para evitar errores)
+                case imagen4:    
+                    $("#imagen4").replaceWith("<h2 id='imagen4'>Agregado al carrito</h2>");break;
+            }
+        }
     </script>
 
 */
