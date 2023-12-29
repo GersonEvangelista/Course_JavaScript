@@ -241,5 +241,44 @@ function suma(a,b){
         }
     </script>
 
+//ESTO VA EN EL index.HTML
+<input type="button" value="newStyle1" id="boton_1"/>
+<input type="button" value="newStyle2" id="boton_2"/>
+    <ol>
+        <li id="first">Primero</li>
+        <li id="second">Segundo</li>
+        <li id="third">Tercero</li>
+        <li id="four">Cuarto</li>
+    </ol>
+
+<script>
+        //Métodos Jquery: addClass, removeClass, toggleClass
+        $(document).ready(function(){
+            document.getElementById("boton_1").addEventListener("click",style1,false);
+            document.getElementById("boton_2").addEventListener("click",style2,false);
+        });
+
+        function style1(){
+            //$("#first").addClass("newStyle1");//agregando estilo "newStyle" de CSS a #first
+            //$("#third").addClass("newStyle1"); 
+            //$("#second").removeClass("newStyle2");//Eliminando estilo "newStyle2" de CSS a #second
+            //$("#four").removeClass("newStyle2"); 
+        
+            $("#first").toggleClass("newStyle1");//Activa y desactiva el estilo CSS a #first
+            $("#third").toggleClass("newStyle1");
+        }
+
+        function style2(){
+            //$("#second").addClass("newStyle2");
+            //$("#four").addClass("newStyle2"); 
+            //$("#first").removeClass("newStyle1");
+            //$("#third").removeClass("newStyle1"); 
+
+            $("#second").toggleClass("newStyle2");
+            $("#four").toggleClass("newStyle2");
+        }
+
+</script>
+
 */
 
