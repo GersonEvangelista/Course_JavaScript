@@ -358,7 +358,36 @@ function suma(a,b){
 
     </script>
 
+//ESTO VA EN EL index.HTML
+<a href="este es el primero">Primero</a></br>
+<a href="este es el segundo">Segundo</a></br>
+<a href="este es el tercero">Tercero</a></br>
+<a href="este es el cuarto">Cuarto</a>
 
+    <input type="button" value="mostrar" id="boton"/>
+
+    <div id="contenedor">
+        <ul>
+        </ul>
+    </div>
+
+    <script>
+        //FUNCION EACH Y FUNCIONES ANÓNIMAS
+        $(document).ready(function(){
+
+            document.getElementById("boton").addEventListener("click",show,false);
+
+            function show(){
+                $("a[href^='este']").each(function(){//función each
+                    //a[href^='este'] -> indica a todos los componentes "a" que su atributo href inicie con "este"
+                    var links = $(this).attr("href");//capturando el valor de "href" de cada componente "a" que es referenciado por "this"
+                    $("ul").append("<li>"+links+"</li>");//agregando codigo HTML
+                    $("ul").addClass("destacar");//agregando estilo CSS
+                });
+            } 
+        });
+    </script>
+    
     
 */
 
