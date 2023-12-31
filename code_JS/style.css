@@ -21,3 +21,12 @@ h1{
 li{
     font-size: 25px;
 }
+
+.destacar{
+    background-color: red;
+}
+
+.modificar_img{
+    width: 350px;
+    height: 350px;
+}

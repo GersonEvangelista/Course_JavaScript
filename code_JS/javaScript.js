@@ -280,5 +280,41 @@ function suma(a,b){
 
 </script>
 
+//ESTO VA EN EL index.HTML
+<input type="button" value="+" id="aumenta"/>
+<input type="button" value="-" id="disminuye"/>
+<ol>
+    <li id="first">Primero</li>
+    <li id="second">Segundo</li>
+    <li id="third">Tercero</li>
+    <li id="four">Cuarto</li>
+</ol>
+
+    <script>
+        //CAMBIANDO ATRIBUTOS CSS CON JS
+        $(document).ready(function(){
+            document.getElementById("aumenta").addEventListener("click",aumentar_disminuir,false);
+            document.getElementById("disminuye").addEventListener("click",aumentar_disminuir,false);
+        });
+
+        var tam = $("li").css("font-size");//obteniendo valor CSS del componente "li"
+        tam = parseInt(tam);//convirtiendo a entero
+        //alert(tam);
+        var zona_a_cambiar = "li"; //etiqueta que se quiere cambiar una propiedad CSS
+
+        function aumentar_disminuir(e){
+            if(e.target==aumenta){//detectando el ID del boton 
+                //$(zona_a_cambiar).css("font-size",tam*2); 
+                $(zona_a_cambiar).css({"font-size":tam*1.5+"px","color":"red"});
+            }else if(e.target==disminuye){
+                //$(zona_a_cambiar).css("font-size",tam*0.5);
+                $(zona_a_cambiar).css({"font-size":tam*0.95+"px","color":"blue"});
+            }
+        }
+
+    </script>
+
+
+
 */
 
