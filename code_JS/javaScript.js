@@ -314,7 +314,51 @@ function suma(a,b){
 
     </script>
 
+//ESTO VA EN EL index.HTML
+<ul>
+    <li id="img1">Imagen1</li>
+    <li id="img2">Imagen2</li>
+</ul>
+
+<div>
+    <img src=""/>
+</div>
+    
+    <script>
+        //MODIFICANDO ATRIBUTOS HTML CON JS
+        $(document).ready(function(){
+            var imagenes = document.querySelectorAll("ul li");
+            for(var i=0;i<imagenes.length;i++){
+                imagenes[i].addEventListener("mouseover",pon_imagen,false);//mouse sobre imagen
+                imagenes[i].addEventListener("mouseout",quita_imagen,false);//mouse fuera de imagen
+            }
+        });
+
+        function pon_imagen(e){
+            if(e.target==img1){
+                $("#img1").addClass("destacar");//agrega estilo CSS a #img1
+                $("div img").attr("src","fotoIA.jpg");//agrega atributo html a "div img"
+            }else if(e.target==img2){
+                $("#img2").addClass("destacar"); 
+                $("div img").attr("src","JD.png");
+            }
+            $("div img").addClass("modificar_img");
+        }
+
+        function quita_imagen(e){
+            switch(e.target){
+                case img1:
+                    $("#img1").removeClass();//elimina el estilo CSS de #img1
+                case img2:
+                    $("#img2").removeClass();
+            }
+            $("div img").removeClass();
+            $("div img").removeAttr("src");//elimina atributo "src" de "div img" 
+        }
+
+    </script>
 
 
+    
 */
 

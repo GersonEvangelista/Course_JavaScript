@@ -12,48 +12,37 @@
 <body id="myBody">
     <h1 id="title">JQUERY</h1>
     
-    <ul>
-        <li id="img1">Imagen1</li>
-        <li id="img2">Imagen2</li>
-    </ul>
+    <a href="este es el primero">Primero</a></br>
+    <a href="este es el segundo">Segundo</a></br>
+    <a href="este es el tercero">Tercero</a></br>
+    <a href="este es el cuarto">Cuarto</a>
 
-    <div>
-        <img src=""/>
+    <input type="button" value="mostrar" id="boton"/>
+
+    <div id="contenedor">
+        <ul>
+        </ul>
     </div>
-    
+
     <script>
-        //MODIFICANDO ATRIBUTOS HTML CON JS
+        //FUNCION EACH Y FUNCIONES ANÓNIMAS
         $(document).ready(function(){
-            var imagenes = document.querySelectorAll("ul li");
-            for(var i=0;i<imagenes.length;i++){
-                imagenes[i].addEventListener("mouseover",pon_imagen,false);//mouse sobre imagen
-                imagenes[i].addEventListener("mouseout",quita_imagen,false);//mouse fuera de imagen
+
+            document.getElementById("boton").addEventListener("click",show,false);
+
+            function show(){
+                $("a[href^='este']").each(function(){//función each
+                    //a[href^='este'] -> indica a todos los componentes "a" que su atributo href inicie con "este"
+                    var links = $(this).attr("href");//capturando el valor de "href" de cada componente "a" que es referenciado por "this"
+                    $("ul").append("<li>"+links+"</li>");//agregando codigo HTML
+                    $("ul").addClass("destacar");//agregando estilo CSS
+                });
             }
+
+            
         });
-
-        function pon_imagen(e){
-            if(e.target==img1){
-                $("#img1").addClass("destacar");//agrega estilo CSS a #img1
-                $("div img").attr("src","fotoIA.jpg");//agrega atributo html a "div img"
-            }else if(e.target==img2){
-                $("#img2").addClass("destacar"); 
-                $("div img").attr("src","JD.png");
-            }
-            $("div img").addClass("modificar_img");
-        }
-
-        function quita_imagen(e){
-            switch(e.target){
-                case img1:
-                    $("#img1").removeClass();//elimina el estilo CSS de #img1
-                case img2:
-                    $("#img2").removeClass();
-            }
-            $("div img").removeClass();
-            $("div img").removeAttr("src");//elimina atributo "src" de "div img" 
-        }
-
     </script>
+    
 
 </body>
 </html>
