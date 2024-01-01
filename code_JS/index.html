@@ -12,47 +12,41 @@
 <body id="myBody">
     <h1 id="title">JQUERY</h1>
 
-    <button id="boton">Mostrar/Ocultar Elemento</button>
-    <div class="mensaje">
-        Este es el elemento que se mostrará u ocultará.
-    </div>
-
-    <ul>
-        <li id="pon">Poner Imagen</li>
+    <input type="button" value="muestra!" id="boton1"/>
+    <input type="button" value="oculta!" id="boton2"/>
+    <ul id="lista">
+        <li>Elemento 1</li>
         <li>Elemento 2</li>
         <li>Elemento 3</li>
         <li>Elemento 4</li>
     </ul>
 
-    <img src="" width="550px" height="400"/>
-
+    <div id="contenedor">
+        <img src="JD.png"/>
+    </div>
+    
     <script>
-        //USO DEL TOGGLE(), NEXT() y BIND con eventos
-        $(document).ready(function() {
-          $("#boton").click(function(){ //funcion anonima
-            $(".mensaje").toggle(); // ON_OFF de .mensaje
-          });
-          //Next()
-          $("li").mouseover(function(){
-                $(this).next().addClass("destacar"); //apunta al siguiente hrno de "li" y le aplica el estilo CSS "destacar"
-          });
-          
-          var data = "JD.png"
-          //BIND: El 2do parametro es la data del eventoObjeto que se envia a la funcion 
-          $("#pon").bind("click",data,function(e){//funcion anonima
-                //e.stopPropagation ->Sirve para parar el evento y que no se cierre en automatico
-                $("img").fadeIn(2000);
-                $("img").attr("src",e.data);//e.data es la "data" del eventoObjeto que recibe la funcion  
-          });
+        //ANIMATE Y FUNCIONES ANIDADAS
+        $(document).ready(function(){
+            $("#boton1").click(function(){
+                $("#lista").slideDown(2000);//desliza en 2seg
+            });
 
-          $(document).bind("dblclick keypress","",quitar_imagen)//eventos en cualquier parte de la pagina
+            $("#boton2").click(function(){
+                $("#lista").fadeToggle(2000);//desaparece en 2seg
+            });
+
+            //de la imagen 
+            $("#contenedor img").width(80).height(80).mouseover(function(){
+                $(this).animate({ //param ({estiloCSS_numericos},time,funcion)
+                    marginLeft: "+=100px",//va moviendose a la derecha en 100px
+                    width: "+=40px",//va anchando en 40px
+                    height: "+=40px"
+                },1000,function(){//funcion anidada
+                    alert("creciendo");
+                });
+            });
         });
-
-        function quitar_imagen(e){
-            $("img").fadeOut(2000);
-            $("img").attr("src",e.data);
-        }
-
     </script>
 
 </body>

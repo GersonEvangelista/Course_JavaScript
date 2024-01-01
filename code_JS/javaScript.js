@@ -416,7 +416,52 @@ function suma(a,b){
             $("#texto1").val("");
         }
     
+    </script>
+
+//ESTO VA EN EL index.HTML
+<button id="boton">Mostrar/Ocultar Elemento</button>
+    <div class="mensaje">
+        Este es el elemento que se mostrará u ocultará.
+    </div>
+
+    <ul>
+        <li id="pon">Poner Imagen</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+
+    <img src="" width="550px" height="400"/>
+
+    <script>
+        //USO DEL TOGGLE(), NEXT() y BIND con eventos
+        $(document).ready(function() {
+          $("#boton").click(function(){ //funcion anonima
+            $(".mensaje").toggle(); // ON_OFF de .mensaje
+          });
+          //Next()
+          $("li").mouseover(function(){
+                $(this).next().addClass("destacar"); //apunta al siguiente hrno de "li" y le aplica el estilo CSS "destacar"
+          });
+          
+          var data = "JD.png"
+          //BIND: El 2do parametro es la data del eventoObjeto que se envia a la funcion 
+          $("#pon").bind("click",data,function(e){//funcion anonima
+                //e.stopPropagation ->Sirve para parar el evento y que no se cierre en automatico
+                $("img").fadeIn(2000);
+                $("img").attr("src",e.data);//e.data es la "data" del eventoObjeto que recibe la funcion  
+          });
+
+          $(document).bind("dblclick keypress","",quitar_imagen)//eventos en cualquier parte de la pagina
+        });
+
+        function quitar_imagen(e){
+            $("img").fadeOut(2000);
+            $("img").attr("src",e.data);
+        }
 
     </script>
+
+
 */
 
