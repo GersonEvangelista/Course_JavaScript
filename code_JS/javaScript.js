@@ -388,6 +388,35 @@ function suma(a,b){
         });
     </script>
     
+//ESTO VA EN EL index.HTML
+<input type="button" id="boton1" value="OK!"></br>
+<div id="contenedor">
+    <input type="text" id="texto1">
+    <div class="mensaje">
+        <h1>Hola mundo</h1>
+    </div>
+</div>
     
+    <script>
+        //Eventos con JS
+        $(document).ready(function(){
+            $("div h1").hide();
+            $("#boton1").click(saluda);
+            $("#boton1").dblclick(quita_saludo);
+        });
+
+        function saluda(){
+            $("h1").show();
+            $("#texto1").focus();
+            $("#texto1").val("Escribe aqui");
+        }
+
+        function quita_saludo(){
+            $(".mensaje h1").hide();
+            $("#texto1").val("");
+        }
+    
+
+    </script>
 */
 

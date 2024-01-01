@@ -11,33 +11,47 @@
 
 <body id="myBody">
     <h1 id="title">JQUERY</h1>
-    <input type="button" id="boton1" value="OK!"></br>
-    <div id="contenedor">
-        <input type="text" id="texto1">
-        <div class="mensaje">
-            <h1>Hola mundo</h1>
-        </div>
+
+    <button id="boton">Mostrar/Ocultar Elemento</button>
+    <div class="mensaje">
+        Este es el elemento que se mostrará u ocultará.
     </div>
-    
+
+    <ul>
+        <li id="pon">Poner Imagen</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+
+    <img src="" width="550px" height="400"/>
+
     <script>
-        //Eventos con JS
-        $(document).ready(function(){
-            $("div h1").hide();
-            $("#boton1").click(saluda);
-            $("#boton1").dblclick(quita_saludo);
+        //USO DEL TOGGLE(), NEXT() y BIND con eventos
+        $(document).ready(function() {
+          $("#boton").click(function(){ //funcion anonima
+            $(".mensaje").toggle(); // ON_OFF de .mensaje
+          });
+          //Next()
+          $("li").mouseover(function(){
+                $(this).next().addClass("destacar"); //apunta al siguiente hrno de "li" y le aplica el estilo CSS "destacar"
+          });
+          
+          var data = "JD.png"
+          //BIND: El 2do parametro es la data del eventoObjeto que se envia a la funcion 
+          $("#pon").bind("click",data,function(e){//funcion anonima
+                //e.stopPropagation ->Sirve para parar el evento y que no se cierre en automatico
+                $("img").fadeIn(2000);
+                $("img").attr("src",e.data);//e.data es la "data" del eventoObjeto que recibe la funcion  
+          });
+
+          $(document).bind("dblclick keypress","",quitar_imagen)//eventos en cualquier parte de la pagina
         });
 
-        function saluda(){
-            $("h1").show();
-            $("#texto1").focus();
-            $("#texto1").val("Escribe aqui");
+        function quitar_imagen(e){
+            $("img").fadeOut(2000);
+            $("img").attr("src",e.data);
         }
-
-        function quita_saludo(){
-            $(".mensaje h1").hide();
-            $("#texto1").val("");
-        }
-    
 
     </script>
 
