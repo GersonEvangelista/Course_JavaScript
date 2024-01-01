@@ -26,11 +26,14 @@ li{
     background-color: red;
 }
 
-.modificar_img{
-    width: 350px;
-    height: 350px;
+img{
+    width: 150px;
+    height: 150px;
+    margin-left: 25px;
 }
 
-img{
-    background-color: black;
+#cubo{
+    background-color: blue;
+    height: 450px;
+    width: 450px;
 }

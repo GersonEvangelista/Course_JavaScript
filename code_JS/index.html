@@ -7,46 +7,39 @@
     <title>Document</title>
     <link href="style.css" rel="stylesheet">
     <script src="jquery-3.7.1.min.js"></script> <!--Importando libreria JQUERY-->
+    <script src="jquery.easing.1.3.js"></script><!--Importando plugins de JQUERY-->
+
 </head>
 
 <body id="myBody">
     <h1 id="title">JQUERY</h1>
-
-    <input type="button" value="muestra!" id="boton1"/>
-    <input type="button" value="oculta!" id="boton2"/>
-    <ul id="lista">
-        <li>Elemento 1</li>
-        <li>Elemento 2</li>
-        <li>Elemento 3</li>
-        <li>Elemento 4</li>
-    </ul>
-
-    <div id="contenedor">
-        <img src="JD.png"/>
-    </div>
     
+    <input type="button" value="OK!" id="boton"/>
+    <div id="cubo">CUBO</div>
+
     <script>
-        //ANIMATE Y FUNCIONES ANIDADAS
         $(document).ready(function(){
-            $("#boton1").click(function(){
-                $("#lista").slideDown(2000);//desliza en 2seg
+            //USO DE LA LIBRERIA "easing"
+            $("#boton").click(function(){
+                $("#cubo").stop().animate({//el stop sirve para que no se forme la cola de eventos de tantas veces que se presione el boton y asi ya no paresca bucle
+                    marginLeft:"100px"
+                },1000,"easeOutBounce");//efecto de rebote con la libreria "easing"
             });
 
-            $("#boton2").click(function(){
-                $("#lista").fadeToggle(2000);//desaparece en 2seg
+            $("#boton").dblclick(function(){
+                $("#cubo").stop().animate({
+                    marginLeft:"0px"
+                },2000,"easeOutBounce");
             });
+            
+            //VENTANAS EMERGENTES 
+            //Nota: Requiere de permisos para mostrar las ventanas, las páginas lo bloquean por defecto
+            var propiedades = "width=500, height=500"
+            var ventana = open("https://www.google.com.pe/?hl=es","GOOGLE",propiedades);//abriendo una ventana
 
-            //de la imagen 
-            $("#contenedor img").width(80).height(80).mouseover(function(){
-                $(this).animate({ //param ({estiloCSS_numericos},time,funcion)
-                    marginLeft: "+=100px",//va moviendose a la derecha en 100px
-                    width: "+=40px",//va anchando en 40px
-                    height: "+=40px"
-                },1000,function(){//funcion anidada
-                    alert("creciendo");
-                });
-            });
+
         });
+        
     </script>
 
 </body>

@@ -462,6 +462,43 @@ function suma(a,b){
 
     </script>
 
+//ESTO VA EN EL index.HTML
+<input type="button" value="muestra!" id="boton1"/>
+<input type="button" value="oculta!" id="boton2"/>
+<ul id="lista">
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+    <li>Elemento 4</li>
+</ul>
+
+    <div id="contenedor">
+        <img src="JD.png"/>
+    </div>
+    
+    <script>
+        //ANIMATE Y FUNCIONES ANIDADAS
+        $(document).ready(function(){
+            $("#boton1").click(function(){
+                $("#lista").slideDown(2000);//desliza en 2seg
+            });
+
+            $("#boton2").click(function(){
+                $("#lista").fadeToggle(2000);//desaparece en 2seg
+            });
+
+            //de la imagen 
+            $("#contenedor img").width(80).height(80).mouseover(function(){
+                $(this).animate({ //param ({estiloCSS_numericos},time,funcion)
+                    marginLeft: "+=100px",//va moviendose a la derecha en 100px
+                    width: "+=40px",//va anchando en 40px
+                    height: "+=40px"
+                },1000,function(){//funcion anidada
+                    alert("creciendo");
+                });
+            });
+        });
+    </script>    
 
 */
 
