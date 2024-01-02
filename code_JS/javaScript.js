@@ -500,5 +500,33 @@ function suma(a,b){
         });
     </script>    
 
+//ESTO VA EN EL index.HTML
+<input type="button" value="OK!" id="boton"/>
+<div id="cubo">CUBO</div>
+
+<script>
+        $(document).ready(function(){
+            //USO DE LA LIBRERIA "easing"
+            $("#boton").click(function(){
+                $("#cubo").stop().animate({//el stop sirve para que no se forme la cola de eventos de tantas veces que se presione el boton y asi ya no paresca bucle
+                    marginLeft:"100px"
+                },1000,"easeOutBounce");//efecto de rebote con la libreria "easing"
+            });
+
+            $("#boton").dblclick(function(){
+                $("#cubo").stop().animate({
+                    marginLeft:"0px"
+                },2000,"easeOutBounce");
+            });
+            
+            //VENTANAS EMERGENTES 
+            //Nota: Requiere de permisos para mostrar las ventanas, las páginas lo bloquean por defecto
+            var propiedades = "width=500, height=500"
+            var ventana = open("https://www.google.com.pe/?hl=es","GOOGLE",propiedades);//abriendo una ventana
+
+        });
+        
+</script>
+
 */
 
