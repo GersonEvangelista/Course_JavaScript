@@ -528,5 +528,36 @@ function suma(a,b){
         
 </script>
 
+
+//ESTO VA EN EL index.HTML
+<form id="formulario">
+        <input type="text" id="dato">
+        <input type="submit" value="Enviar" id="enviar">
+    </form>
+    
+<script>
+        //FORMULARIOS
+        $(document).ready(function(){
+            
+            $("#formulario").submit(function(e){ //submit: funciona solo cuando esta dentro del componente "form"
+                e.preventDefault();//Evita que el formulario se envíe normalmente
+
+                if($("#dato").val()==""){//si el text esta vacio
+                    alert("Ingrese un dato");
+                    $("#dato").focus();
+                }else{
+                    if(isNaN($("#dato").val())){
+                        alert("Ingresa un dato numérico");
+                        $("#dato").val("");//Limpiando text
+                        $("#dato").focus();
+                    }else{
+                        alert("Dato enviado");
+                        $("#dato").attr("disabled","disabled");//Desabilitando text
+                    }
+                }
+            });
+        });  
+</script>
+
 */
 

@@ -9,31 +9,8 @@ h1{
     margin: 30px;
 }
 
-.newStyle1{
-    color: red;
-}
-
-.newStyle2{
-    color: blue
-    
-}
-
-li{
-    font-size: 25px;
-}
-
-.destacar{
+#contenedorExterno{
     background-color: red;
-}
-
-img{
-    width: 150px;
-    height: 150px;
-    margin-left: 25px;
-}
-
-#cubo{
-    background-color: blue;
-    height: 450px;
-    width: 450px;
+    height: 500px;
+    width: 500px;
 }

@@ -14,38 +14,21 @@
 <body id="myBody">
     <h1 id="title">JQUERY</h1>
 
-    <form id="formulario">
-        <input type="text" id="dato">
-        <input type="submit" value="Enviar" id="enviar">
-    </form>
-    
+    <a href="archivo2.html">Hello_World</a>
+    </br></br>
+    <div id="contenedorExterno"></div>
+
     <script>
-        //FORMULARIOS
+        //AJAX: Uso del load(CARGAR DENTRO DE LA PAGINA OTRA PAGINA)
         $(document).ready(function(){
-            
-            $("#formulario").submit(function(e){ //submit: funciona solo cuando esta dentro del componente "form"
-                e.preventDefault();//Evita que el formulario se envíe normalmente
 
-                if($("#dato").val()==""){//si el text esta vacio
-                    alert("Ingrese un dato");
-                    $("#dato").focus();
-                }else{
-                    if(isNaN($("#dato").val())){
-                        alert("Ingresa un dato numérico");
-                        $("#dato").val("");//Limpiando text
-                        $("#dato").focus();
-                    }else{
-                        alert("Dato enviado");
-                        $("#dato").attr("disabled","disabled");//Desabilitando text
-                    }
-                }
+            $("a").click(function(){
+                $("#contenedorExterno").load("archivo2.html");//cargando la otra pagina
+                    return false;//Para deshabilitar el funcionamiento de <a> y evitar conflictos
             });
-
-            
-            
+            //Nota: Agregar extension "Live Server" de VSCode para que funcione
         });
 
-            
     </script>
 
 </body>
