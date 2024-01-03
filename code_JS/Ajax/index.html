@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="principal">
+        <form method="get" action="/data.php" id="login">
+            <input type="text" name="usuario" id="usuario"></br>
+            <input type="submit" value="enviar!" id="boton"></br>
+            <!--<input type="text" name="contra" id="contra">-->
+        </form>
+        
+        <div id="contenidoExterno"></div>
+        
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $("#login").submit(function(e){
+                var dataForm = $(this).serialize();
+                //var dataForm = {usuario:$("#usuario").val(), contra:$("#contra").val()};
+                alert("esto es -> " + dataForm);
+                //$.get("data.php",dataForm,procesar);
+                //$.getJSON("Ajax/../data.php", dataForm, procesar).fail(procesarError);
+                $.get("data.php", dataForm, procesar2, "json");
+                e.preventDefault(); //inhabilitar al submit por defecto
+            });
+        });
+
+        function procesar(dato_devuelto){
+            /*alert(dato_devuelto);
+            if(dato_devuelto == "autorizado"){
+                $("#contenidoExterno").html("<p>Correcto!</p>")
+            }else{
+                $("#contenidoExterno").html("<p>Incorrecto!</p>")
+            }
+            */
+           alert(dato_devuelto.Nombre);
+            $("#contenidoExterno").html(dato_devuelto.Nombre);
+        }
+
+        function procesarError(){
+            alert("Aqui hay un error!");
+        }
+
+    </script>
+    
+</body>
+</html>
